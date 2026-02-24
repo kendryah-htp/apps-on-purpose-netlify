@@ -1,0 +1,6 @@
+{
+  "name": "apps-on-purpose",
+  "version": "1.0.0",
+  "description": "Apps on Purpose™ by ELVT Social",
+  "engines": { "node": "18" }
+}
