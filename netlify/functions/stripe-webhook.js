@@ -1,7 +1,7 @@
 // ═══════════════════════════════════════════════════════════
 // APPS ON PURPOSE — STRIPE WEBHOOK
 // Netlify Serverless Function
-// Endpoint: https://aopnow.netlify.app/.netlify/functions/stripe-webhook
+// Endpoint: https://now.elvtsocial.xyz/.netlify/functions/stripe-webhook
 // ═══════════════════════════════════════════════════════════
 
 const https = require('https');
@@ -194,12 +194,12 @@ async function sendWelcomeEmail(to, firstName, planName) {
     ${bonusBlock}
 
     <div style="text-align:center;margin:32px 0 24px;">
-      <a href="https://aopnow.netlify.app" style="display:inline-block;background:#C9A96E;color:#0E0A06;padding:16px 40px;text-decoration:none;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Access Your Dashboard →</a>
+      <a href="https://now.elvtsocial.xyz" style="display:inline-block;background:#C9A96E;color:#0E0A06;padding:16px 40px;text-decoration:none;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;">Access Your Dashboard →</a>
     </div>
     <p style="font-size:13px;color:#D4C5B0;line-height:1.8;margin:0;">Questions? <a href="mailto:support@elvt.social" style="color:#C9A96E;text-decoration:none;">support@elvt.social</a> — weekdays 9AM–6PM EST.</p>
   </div>
   <div style="text-align:center;margin-top:28px;">
-    <p style="font-size:11px;color:rgba(250,246,240,0.25);margin:0;">ELVT Social — High Ticket Purpose &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; <a href="https://aopnow.netlify.app" style="color:rgba(201,169,110,0.4);text-decoration:none;">aopnow.netlify.app</a></p>
+    <p style="font-size:11px;color:rgba(250,246,240,0.25);margin:0;">ELVT Social — High Ticket Purpose &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; <a href="https://now.elvtsocial.xyz" style="color:rgba(201,169,110,0.4);text-decoration:none;">now.elvtsocial.xyz</a></p>
   </div>
 </div>
 </body></html>`

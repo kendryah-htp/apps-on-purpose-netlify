@@ -1053,7 +1053,7 @@ body::before {
         <div class="dash-card">
           <div class="dash-card-title">Your Affiliate Link</div>
           <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
-            <div class="dash-input" id="aff-link" style="flex:1;padding:12px 16px;font-size:13px;color:var(--gold);">https://aopnow.netlify.app/?ref=member</div>
+            <div class="dash-input" id="aff-link" style="flex:1;padding:12px 16px;font-size:13px;color:var(--gold);">https://now.elvtsocial.xyz/?ref=member</div>
             <button class="dash-btn" onclick="copyAffLink()">Copy Link</button>
           </div>
           <p style="font-size:13px;color:var(--muted);">Share this link anywhere. Every purchase through your link earns you 50% every month they stay active.</p>
@@ -1657,12 +1657,12 @@ function saveStorefront() {
 }
 
 function copyStorefront() {
-  navigator.clipboard.writeText('https://aopnow.netlify.app');
+  navigator.clipboard.writeText('https://now.elvtsocial.xyz');
   showNotif('✦ Storefront URL copied', 'success');
 }
 
 function copyAffLink() {
-  navigator.clipboard.writeText('https://aopnow.netlify.app/?ref=member');
+  navigator.clipboard.writeText('https://now.elvtsocial.xyz/?ref=member');
   showNotif('✦ Affiliate link copied', 'success');
 }
 
@@ -1686,7 +1686,7 @@ async function fireGHLWebhook(eventType, data) {
 // EMAIL (RESEND)
 // ═══════════════════════════════════════════
 async function sendWelcomeEmail(link) {
-  // Webhook endpoint: https://aopnow.netlify.app/.netlify/functions/stripe-webhook
+  // Webhook endpoint: https://now.elvtsocial.xyz/.netlify/functions/stripe-webhook
   // Here we log for now; actual send happens server-side
   const plan = link.href.includes(STRIPE_LINKS.starter) ? 'Starter' :
                link.href.includes(STRIPE_LINKS.creator) ? 'Creator License' : 'Agency';
@@ -1790,7 +1790,7 @@ function scrollToPricing() {
             <p style="margin:0 0 12px;"><strong style="color:#C9A96E;">Step 2:</strong> Use the generated concept to build your 5 Canva screens.</p>
             <p style="margin:0;"><strong style="color:#C9A96E;">Step 3:</strong> Connect your app to your email list and go live.</p>
           </div>
-          <a href="https://aopnow.netlify.app" style="display:inline-block;background:#C9A96E;color:#0E0A06;padding:14px 32px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Access Your Dashboard →</a>
+          <a href="https://now.elvtsocial.xyz" style="display:inline-block;background:#C9A96E;color:#0E0A06;padding:14px 32px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;">Access Your Dashboard →</a>
           <p style="margin-top:32px;font-size:12px;color:rgba(250,246,240,0.4);">Questions? support@elvt.social | ELVT Social — High Ticket Purpose</p>
         </div>
       `);
