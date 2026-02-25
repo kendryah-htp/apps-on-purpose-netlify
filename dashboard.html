@@ -107,7 +107,7 @@
     </svg>
     <h2>Access your dashboard</h2>
     <p>Use the magic link from your welcome email to sign in — no password needed. Check your inbox for an email from <strong style="color:#FAF6F0;">re@elvt.social</strong>.</p>
-    <a href="https://app.elvtsocial.xyz" class="btn">← Back to Home</a>
+    <a href="https://aopnow.elvtsocial.xyz" class="btn">← Back to Home</a>
     <p style="margin-top:24px;font-size:12px;color:rgba(250,246,240,0.3);">Lost your link? Email <a href="mailto:support@elvt.social" style="color:#C9A96E;text-decoration:none;">support@elvt.social</a></p>
   </div>
 </div>
@@ -176,7 +176,7 @@
       <h3>Your affiliate link ✦</h3>
       <p>Share your link and earn 50% recurring commission on every Starter and Creator sale — paid monthly via Stripe.</p>
       <div class="affiliate-link-box">
-        <span id="affiliate-link">https://app.elvtsocial.xyz/?ref=loading</span>
+        <span id="affiliate-link">https://aopnow.elvtsocial.xyz/?ref=loading</span>
         <button class="copy-btn" onclick="copyAffLink()">Copy Link</button>
       </div>
     </div>
@@ -238,7 +238,7 @@
     document.getElementById('user-email').textContent  = email;
     document.getElementById('user-plan').textContent   = plan;
     document.getElementById('user-name').textContent   = name;
-    document.getElementById('affiliate-link').textContent = `https://app.elvtsocial.xyz/?ref=${affId}`;
+    document.getElementById('affiliate-link').textContent = `https://aopnow.elvtsocial.xyz/?ref=${affId}`;
 
     // Clean URL
     window.history.replaceState({}, '', '/dashboard');
@@ -269,7 +269,7 @@
     const btn = document.querySelector('.resend-btn');
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: 'https://app.elvtsocial.xyz/dashboard' } });
+    const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: 'https://aopnow.elvtsocial.xyz/dashboard' } });
     btn.textContent = error ? 'Error — try again' : 'Sent! Check your inbox ✓';
     setTimeout(() => { btn.textContent = 'Email Me a New Link'; btn.disabled = false; }, 4000);
   }

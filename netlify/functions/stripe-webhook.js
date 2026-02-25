@@ -14,7 +14,7 @@ const GHL_WEBHOOK_URL      = process.env.GHL_WEBHOOK_URL || '';
 const FROM_EMAIL           = process.env.FROM_EMAIL || 're@elvt.social';
 const FROM_NAME            = process.env.FROM_NAME  || 'ELVT Social — Apps on Purpose';
 const NOTIFY_EMAIL         = process.env.NOTIFY_EMAIL || 'kendryah@highticketpurpose.com';
-const SITE_URL             = 'https://app.elvtsocial.xyz';
+const SITE_URL             = 'https://aopnow.elvtsocial.xyz';
 
 const PLAN_NAMES = {
   'price_1T3gqo0490AThCZFXMpe0xwZ': 'Starter',
@@ -194,7 +194,7 @@ async function sendWelcomeEmail(to, firstName, planName, magicLink) {
   </div>
 
   <p style="font-size:11px;color:rgba(250,246,240,0.25);text-align:center;margin-top:28px;">
-    ELVT Social · Apps on Purpose™ © 2026 · <a href="${SITE_URL}" style="color:rgba(201,169,110,0.4);text-decoration:none;">app.elvtsocial.xyz</a>
+    ELVT Social · Apps on Purpose™ © 2026 · <a href="${SITE_URL}" style="color:rgba(201,169,110,0.4);text-decoration:none;">aopnow.elvtsocial.xyz</a>
   </p>
 </div>
 </body></html>`
