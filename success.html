@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Apps on Purpose™</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #0E0A06;
+    color: #FAF6F0;
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .diamond {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 32px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    margin-bottom: 16px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #FAF6F0;
+  }
+
+  h1 em {
+    color: #C9A96E;
+    font-style: italic;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #D4C5B0;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+  }
+
+  .steps {
+    background: #1A1208;
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 4px;
+    padding: 32px;
+    margin-bottom: 36px;
+    text-align: left;
+  }
+
+  .steps-title {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    margin-bottom: 24px;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .step:last-child { margin-bottom: 0; }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #C9A96E;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #C9A96E;
+    flex-shrink: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .step-text {
+    padding-top: 4px;
+  }
+
+  .step-text strong {
+    display: block;
+    font-size: 14px;
+    color: #FAF6F0;
+    font-weight: 400;
+    margin-bottom: 2px;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .step-text span {
+    font-size: 13px;
+    color: rgba(212,197,176,0.6);
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .email-note {
+    font-size: 13px;
+    color: rgba(212,197,176,0.5);
+    margin-bottom: 32px;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+  }
+
+  .email-note span {
+    color: #C9A96E;
+  }
+
+  .cta {
+    display: inline-block;
+    background: #C9A96E;
+    color: #0E0A06;
+    padding: 16px 48px;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Helvetica Neue', sans-serif;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .cta:hover { background: #D4B87A; }
+
+  .support {
+    font-size: 12px;
+    color: rgba(250,246,240,0.25);
+    font-family: 'Helvetica Neue', sans-serif;
+    margin-top: 40px;
+  }
+
+  .support a {
+    color: rgba(201,169,110,0.5);
+    text-decoration: none;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(201,169,110,0.3);
+    margin: 0 auto 32px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <svg class="diamond" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 4L58 24L32 60L6 24L32 4Z" stroke="#C9A96E" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M32 4L58 24L32 60L6 24L32 4Z" stroke="#C9A96E" stroke-width="1" fill="none"/>
+    <path d="M6 24H58" stroke="#C9A96E" stroke-width="0.75" opacity="0.5"/>
+    <path d="M32 4L18 24L32 60L46 24L32 4Z" stroke="#C9A96E" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="32" cy="24" r="2" fill="#C9A96E" opacity="0.8"/>
+  </svg>
+
+  <p class="eyebrow">Apps on Purpose™ by ELVT Social</p>
+
+  <h1>You're <em>in</em>,<br>and you're ready.</h1>
+
+  <div class="divider"></div>
+
+  <p class="subtitle">Your membership is confirmed. Check your inbox for your welcome email with login details — then come back here to access your dashboard.</p>
+
+  <div class="steps">
+    <p class="steps-title">Your next 3 steps ✦</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Check your email</strong>
+        <span>Your welcome email with dashboard access is on its way now</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Access your dashboard</strong>
+        <span>Log in and start with Module 1 — Foundation & Setup</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Build your first app</strong>
+        <span>You'll have your first Canva-based app ready within 48 hours</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="email-note">A welcome email was sent to <span>your inbox</span>. If you don't see it within 5 minutes, check your spam folder or contact <span>support@elvt.social</span></p>
+
+  <a href="https://now.elvtsocial.xyz" class="cta">Go to My Dashboard →</a>
+
+  <p class="support">
+    Questions? <a href="mailto:support@elvt.social">support@elvt.social</a>
+  </p>
+
+</div>
+</body>
+</html>
