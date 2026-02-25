@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Apps on Purpose™</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0E0A06;
+    color: #FAF6F0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    max-width: 420px;
+    width: 100%;
+    background: #150F08;
+    border: 1px solid rgba(201,169,110,0.15);
+    padding: 48px 40px;
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #C9A96E;
+    display: block;
+    margin-bottom: 8px;
+  }
+  h1 { font-size: 26px; font-weight: 300; color: #FAF6F0; }
+  h1 em { color: #C9A96E; font-style: italic; }
+  .divider { height: 1px; background: rgba(201,169,110,0.1); margin-bottom: 32px; }
+  .title { font-size: 18px; font-weight: 300; color: #FAF6F0; margin-bottom: 8px; }
+  .subtitle { font-size: 13px; color: rgba(212,197,176,0.6); line-height: 1.6; margin-bottom: 32px; }
+  label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(250,246,240,0.4);
+    margin-bottom: 8px;
+  }
+  input {
+    width: 100%;
+    background: #0E0A06;
+    border: 1px solid rgba(201,169,110,0.2);
+    color: #FAF6F0;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border 0.2s;
+    margin-bottom: 20px;
+  }
+  input:focus { border-color: #C9A96E; }
+  .btn {
+    width: 100%;
+    background: #C9A96E;
+    color: #0E0A06;
+    border: none;
+    padding: 16px;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+  }
+  .btn:hover:not(:disabled) { background: #D4B87A; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .error {
+    background: rgba(220,50,50,0.1);
+    border: 1px solid rgba(220,50,50,0.3);
+    color: #ff6b6b;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: none;
+  }
+  .hint {
+    font-size: 12px;
+    color: rgba(250,246,240,0.25);
+    text-align: center;
+  }
+  .hint a { color: rgba(201,169,110,0.5); text-decoration: none; }
+  .forgot {
+    font-size: 12px;
+    color: rgba(201,169,110,0.4);
+    text-align: right;
+    margin-top: -14px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .forgot:hover { color: #C9A96E; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <span class="eyebrow">ELVT Social</span>
+    <h1>Apps <em>on Purpose</em>™</h1>
+  </div>
+
+  <div class="divider"></div>
+  <p class="title">Member login</p>
+  <p class="subtitle">Welcome back. Enter your email and password to access your dashboard.</p>
+
+  <div class="error" id="errorMsg"></div>
+
+  <label>Email Address</label>
+  <input type="email" id="email" placeholder="you@email.com" onkeydown="if(event.key==='Enter')login()">
+
+  <label>Password</label>
+  <input type="password" id="password" placeholder="Your password" onkeydown="if(event.key==='Enter')login()">
+
+  <div class="forgot" onclick="forgotPassword()">Forgot password?</div>
+
+  <button class="btn" id="loginBtn" onclick="login()">Log In →</button>
+
+  <p class="hint">New here? <a href="https://now.elvtsocial.xyz/#pricing">Get access →</a></p>
+</div>
+
+<script>
+  async function login() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('loginBtn');
+    const errorEl = document.getElementById('errorMsg');
+
+    errorEl.style.display = 'none';
+
+    if (!email || !password) {
+      showError('Please enter your email and password.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Logging in...';
+
+    try {
+      const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+      const supabase = createClient(
+        'https://jajtyudbkyrqklbnаggm.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphZ3R5dWRia3lycWtsYm5hZ2dtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5MzM2MDAsImV4cCI6MjAyNTUwOTYwMH0.placeholder'
+      );
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) throw error;
+
+      // Store session and redirect to dashboard
+      localStorage.setItem('aop_session', JSON.stringify({
+        access_token: data.session.access_token,
+        user: data.user,
+        plan: data.user.user_metadata?.plan || 'Starter'
+      }));
+
+      window.location.href = '/dashboard';
+
+    } catch (err) {
+      showError(err.message === 'Invalid login credentials'
+        ? 'Incorrect email or password. Please try again.'
+        : err.message || 'Login failed. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Log In →';
+    }
+  }
+
+  async function forgotPassword() {
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+      showError('Enter your email address first, then click Forgot password.');
+      return;
+    }
+
+    try {
+      const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+      const supabase = createClient(
+        'https://jajtyudbkyrqklbnаggm.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphZ3R5dWRia3lycWtsYm5hZ2dtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk5MzM2MDAsImV4cCI6MjAyNTUwOTYwMH0.placeholder'
+      );
+
+      await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://now.elvtsocial.xyz/set-password'
+      });
+
+      document.getElementById('errorMsg').style.display = 'none';
+      document.querySelector('.subtitle').textContent = `Password reset email sent to ${email}. Check your inbox.`;
+      document.querySelector('.subtitle').style.color = '#C9A96E';
+    } catch (err) {
+      showError('Could not send reset email. Please contact support@elvt.social');
+    }
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  // Redirect if already logged in
+  const session = localStorage.getItem('aop_session');
+  if (session) {
+    try {
+      const s = JSON.parse(session);
+      if (s.access_token) window.location.href = '/dashboard';
+    } catch {}
+  }
+</script>
+</body>
+</html>
