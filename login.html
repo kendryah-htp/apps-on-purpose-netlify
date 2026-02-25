@@ -127,7 +127,7 @@
 
   <button class="btn" id="loginBtn" onclick="login()">Log In →</button>
 
-  <p class="hint">New here? <a href="https://now.elvtsocial.xyz/#pricing">Get access →</a></p>
+  <p class="hint">New here? <a href="https://app.elvtsocial.xyz/#pricing">Get access →</a></p>
 </div>
 
 <script>
@@ -191,7 +191,7 @@
       );
 
       await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://now.elvtsocial.xyz/set-password'
+        redirectTo: 'https://app.elvtsocial.xyz/set-password'
       });
 
       document.getElementById('errorMsg').style.display = 'none';
